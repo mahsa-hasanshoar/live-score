@@ -11,6 +11,10 @@ body{
   pointer-events: none;
 }
 
+#loadingText{
+  font-size: 2rem !important;
+  color: white;
+}
 .card-title{
   color:#07021b;
   font-weight: 700;

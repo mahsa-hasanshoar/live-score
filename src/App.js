@@ -35,7 +35,7 @@ class App extends Component {
       return (
         <div className="App">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>data was loading ....</p>
+          <p id="loadingText">data was loading ....</p>
         </div>
       );
     } else {
