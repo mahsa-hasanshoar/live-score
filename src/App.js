@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import "./bootstrap.min.css"
 import React, { Component } from "react";
 
 class App extends Component {
@@ -39,62 +40,59 @@ class App extends Component {
       );
     } else {
       return (
-        <div className="App">
-          <div class="container">
-            <h1>ScoreBoard</h1>
-            {items.matches.map((item) => {
-              return (
-                <div>
-                  <div class="title-box">
-                    <p>Home Team</p>
-                    <p id="elapsed">{item.status}</p>
-                    <p>Away Team</p>
-                  </div>
-                  <div class="title-box">
-                    <div class="team">
-                      <img
-                        id="homeLogo"
-                        src={
-                          "https://crests.football-data.org/" +
-                          item.homeTeam.id +
-                          ".svg"
-                        }
-                      ></img>
-                      <p id="homeName">{item.homeTeam.name}</p>
+        <main>
+          <div class="container my-5">
+            <div class="row card text-center align-items-center rounded-3 border shadow-lg">
+              <div class="card-header">
+                <div class="match-tournament ">
+                  <img src="pl-logo.png" alt="" />
+                        English Premier League
                     </div>
-                    <p id="goals">
-                      {item.score.fullTime.homeTeam +
-                        " - " +
-                        item.score.fullTime.awayTeam}
-                    </p>
-                    <div class="team">
-                      <img
-                        id="awayLogo"
-                        src={
-                          "https://crests.football-data.org/" +
-                          item.awayTeam.id +
-                          ".svg"
-                        }
-                      ></img>
-                      <p id="awayName">{item.awayTeam.name}</p>
+              </div>
+
+              <div class="scrollbar scrollbar-secondary cardfoot">
+                {items.matches.map((item) => {
+                  return (
+                    <div class="card-body align-items-center row">
+                      <div class="col-4 team">
+                        <div class="team-logo"><img src="img/whufc.png" alt="" /></div>
+                        <h6 class="mt-4 card-title">West Ham</h6>
+                      </div>
+                      <div class="col-4">
+                        <div class="match-details">
+                          <div class="match-date">
+                            12 Aug at <strong>19:00</strong>
+                          </div>
+                          <div class="match-score">
+                            <span class="match-score-number match-score-number--leading">2</span>
+                            <span class="match-score-divider">:</span>
+                            <span class="match-score-number">0</span>
+                          </div>
+                        </div>
+                        <h6 class="mt-5 card-title">list davar</h6>
+                        <div class="scrollbar davar mt-3 scrollbar-secondary ">
+                          <ul class="list-group list-group-flush ">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-4 team">
+                        <div class="team-logo"><img src="img/chelsea.png" alt="" /></div>
+                        <h6 class="mt-4 card-title">Chelsea</h6>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <ul>
-                      {item.referees.map((ref) => (
-                        <li>{ref.name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <p>{formatDate(item.utcDate)}</p>
-                  </div>
-                  <hr></hr>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+                  );
+                })}
+              </div>
+            </div>
+            </div>
+       </main>
+
+
       );
     }
   }
@@ -102,7 +100,7 @@ class App extends Component {
 
 function formatDate(string) {
   var options = {
-    year: "numeric",
+            year: "numeric",
     month: "numeric",
     day: "numeric",
     hour: "numeric",
